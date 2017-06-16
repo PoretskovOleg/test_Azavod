@@ -1,0 +1,168 @@
+.content {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid black;
+}
+.content_2 {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid black;
+}
+.title_2 {
+    text-align: center;
+}
+.title {
+    width: 45%;
+    height: 50px;
+    line-height: 25px;
+    float: left;
+}
+.add_employee {
+    width: 45%;
+    height: 50px;
+    line-height: 80px;
+    text-align: right;
+    float: right;
+}
+.add_employee a {
+    color: red;
+}
+.clear {
+    clear: both;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.find {
+    border: 1px solid grey;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+}
+input[name="fio"] {
+    margin-bottom: 20px;
+}
+input[name="from"] {
+    margin-left: 50px;
+    width: 60px;
+}
+input[name="to"] {
+    margin-left: 53px;
+    width: 60px;
+}
+.find button {
+    margin-left: 25px;
+}
+.label_age {
+    margin-left: 73px;
+}
+.table_employees {
+    width: 94%;
+    margin: 25px auto;
+}
+.man {
+    color: blue;
+}
+.woman {
+    color: red;
+}
+.table_employees {
+    border-collapse: collapse;
+    border: 1px solid grey;
+    margin-top: 20px;
+}
+.table_employees tr {
+     border: 1px solid grey;
+     height: 30px;
+}
+.table_employees td, .table_employees th {
+     border: 1px solid grey;
+}
+.id, .sex {
+    width: 50px;
+    text-align: center;
+}
+td.name {
+    width: 250px;
+    padding-left: 20px;
+}
+.age, .action {
+    width: 100px;
+    text-align: center;
+}
+.foto {
+    width: 70px;
+    text-align: center;
+}
+.foto img {
+    width: 30px;
+    height: 30px;
+}
+.action span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+.action span:hover {
+    cursor: pointer;
+}
+#foto_big_size {
+    width: 250px;
+    height: 250px;
+    margin-left: 150px;
+}
+#numberPages {
+    border-collapse: collapse;
+}
+#numberPages td {
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.label, .label_2 {
+    width: 150px;
+    text-align: right;
+    margin-right: 15px;
+    float: left;
+}
+.label div {
+    height: 40px;
+    margin-bottom: 5px;
+    line-height: 35px;
+}
+.input input {
+    margin-top: 5px;
+    width: 300px;
+}
+.input div {
+    height: 20px;
+}
+.input_2 input {
+    margin-top: 55px;
+    width: 300px;
+}
+.input_2 select {
+    margin-top: 55px;
+    width: 300px;
+}
+.label_2, .input_2 {
+    margin-top: 100px;
+}
+.button {
+    margin-top: 50px;
+    margin-left: 150px;
+}
+.button button {
+    margin-right: 100px;
+}
+.label_2 p {
+    margin-top: 55px;
+}
+.form_add_employee {
+    width: 500px;
+    margin: 0 auto;
+}
