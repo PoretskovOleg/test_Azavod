@@ -10,9 +10,9 @@
   db::getInstance()->connect(HOST, LOGIN, PASS, DBASE);
 
   $action = 'action_';
-  $action.= isset($_GET['action']) ? $_GET['action'] : 'index';
+  $action.= isset($_GET[action]) ? $_GET[action] : 'index';
   
-  switch ($_GET['page']) {
+  switch ($_GET[page]) {
     case 'employee':
       $controller = new EmployeeController();
       break;
@@ -21,8 +21,8 @@
       $controller = new PageController();
       break;
   }
-  if ( isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-    strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ) 
+  if ( isset($_SERVER[HTTP_X_REQUESTED_WITH]) &&
+    strtolower($_SERVER[HTTP_X_REQUESTED_WITH]) == 'xmlhttprequest' ) 
     $controller->$action();
     else $controller->Request($action);
 

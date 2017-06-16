@@ -42,7 +42,7 @@
           if ($_FILES[foto][name]) {
             $name = M_Employees::translitFileName($_FILES['foto']['name']);
             $path = './img/'.$name;
-            $type = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+            $type = pathinfo($_FILES[foto][name], PATHINFO_EXTENSION);
             M_Employees::changeImage(200, 200, $_FILES['foto']['tmp_name'], $path, $type);
           }
 

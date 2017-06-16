@@ -31,22 +31,22 @@
     static public function validateEmployee($params) {
       $message = array();
 
-      if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params['name'])) {
-        $message['name'] = 'Можно вводить только русские буквы';
+      if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params[name])) {
+        $message[name] = 'Можно вводить только русские буквы';
       }
       
-      if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params['lastName'])) {
-        $message['lastName'] = 'Можно вводить только русские буквы';
+      if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params[lastName])) {
+        $message[lastName] = 'Можно вводить только русские буквы';
       }
 
       if ($params[secondName]) {
-        if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params['secondName'])) {
-          $message['secondName'] = 'Можно вводить только русские буквы';
+        if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params[secondName])) {
+          $message[secondName] = 'Можно вводить только русские буквы';
         }
       }
 
-      if (!preg_match('/^\d\d\.\d\d\.\d\d$/', $params['birth'])) {
-        $message['birth'] = 'Формат даты: дд.мм.гг';
+      if (!preg_match('/^\d\d\.\d\d\.\d\d$/', $params[birth])) {
+        $message[birth] = 'Формат даты: дд.мм.гг';
       }
 
       return $message;
