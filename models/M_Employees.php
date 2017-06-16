@@ -5,14 +5,14 @@
   class M_Employees {
 
     static public function getEmployees($params = array()) {
-      $num = isset($params[num]) ? $params[num]*5 - 5 : 0;
-      $name = $params[fio];
-      $ageFrom = !empty($params[from]) ? $params[from] : 0;
-      $ageTo = !empty($params[to]) ? $params[to] : 100;
-      if ( (isset($params[man]) && isset($params[woman])) ||
-          (!isset($params[man]) && !isset($params[woman])) ) {$sexM = 'муж'; $sexW = 'жен';}
-      elseif (isset($params[man]) && !isset($params[woman])) $sexM = 'муж';
-      else $sexW = 'жен';
+      $num = isset($params['num']) ? $params['num']*5 - 5 : 0;
+      $name = !empty($params['fio']) ? $params['fio'] : '';
+      $ageFrom = !empty($params['from']) ? $params['from'] : 0;
+      $ageTo = !empty($params['to']) ? $params['to'] : 100;
+      if ( (isset($params['man']) && isset($params['woman'])) ||
+          (!isset($params['man']) && !isset($params['woman'])) ) {$sexM = '1'; $sexW = '2';}
+      elseif (isset($params['man']) && !isset($params['woman'])) {$sexM = '1'; $sexW = '0';}
+      else {$sexM = '0'; $sexW = '2';}
       $query = "SELECT id, foto, name, sex, ((YEAR(CURRENT_DATE) - YEAR(age)) - (DATE_FORMAT(CURRENT_DATE, '%m%d') < DATE_FORMAT(age, '%m%d'))) AS age FROM employees
         WHERE ((YEAR(CURRENT_DATE) - YEAR(age)) - (DATE_FORMAT(CURRENT_DATE, '%m%d') < DATE_FORMAT(age, '%m%d'))) >= '$ageFrom'
           AND ((YEAR(CURRENT_DATE) - YEAR(age)) - (DATE_FORMAT(CURRENT_DATE, '%m%d') < DATE_FORMAT(age, '%m%d'))) <= '$ageTo'
@@ -31,22 +31,22 @@
     static public function validateEmployee($params) {
       $message = array();
 
-      if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params[name])) {
-        $message[name] = 'Можно вводить только русские буквы';
+      if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params['name'])) {
+        $message['name'] = 'Можно вводить только русские буквы';
       }
       
-      if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params[lastName])) {
-        $message[lastName] = 'Можно вводить только русские буквы';
+      if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params['lastName'])) {
+        $message['lastName'] = 'Можно вводить только русские буквы';
       }
 
-      if ($params[secondName]) {
-        if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params[secondName])) {
-          $message[secondName] = 'Можно вводить только русские буквы';
+      if ($params['secondName']) {
+        if (!preg_match('/^[а-яА-ЯёЁ]+$/u', $params['secondName'])) {
+          $message['secondName'] = 'Можно вводить только русские буквы';
         }
       }
 
-      if (!preg_match('/^\d\d\.\d\d\.\d\d$/', $params[birth])) {
-        $message[birth] = 'Формат даты: дд.мм.гг';
+      if (!preg_match('/^\d\d\.\d\d\.\d\d$/', $params['birth'])) {
+        $message['birth'] = 'Формат даты: дд.мм.гг';
       }
 
       return $message;

@@ -23,24 +23,31 @@ function requestEmployees(data) {
     success: function(data) {
       $('#employees').html('');
       $('#numberPages tr').html('');
-
-      data.employees.forEach(function(person) {
-        var classSex = (person.sex == 'муж') ? 'man' : 'woman';
-        $('#employees').append(
-          '<tr><td class="id">'  + person.id + 
-          '</td><td class="foto"> <img src="' + person.foto + '" alt="фото">' +
-          '</td><td class="name">' + person.name +
-          '</td><td class="age">' + person.age + ' лет ' +
-          '</td><td class="sex ' + classSex + '">' + person.sex +
-          '</td><td class="action">' + '<span><a href="./index.php?page=employee&id=' + 
-            person.id + '">Ред</a></span> , <span onclick="deleteEmployee(' + person.id + ')">удал</span>' +
-          '</td></tr>'
-        );
-      });
-
-      for (var i = 1; i <= data.pages; i++) {
-        $('#numberPages tr').append('<td>' + i + '</td>');
-      };
+      $('.div_employees div').html('');
+      if (data.employees.length > 0) {
+        data.employees.forEach(function(person) {
+          var classSex = (person.sex == '1') ? 'man' : 'woman';
+          var sex = (person.sex == '1') ? 'муж' : 'жен';
+          $('#employees').append(
+            '<tr><td class="id">'  + person.id + 
+            '</td><td class="foto"> <img src="' + person.foto + '" alt="фото">' +
+            '</td><td class="name">' + person.name +
+            '</td><td class="age">' + person.age + ' лет ' +
+            '</td><td class="sex ' + classSex + '">' + sex +
+            '</td><td class="action">' + '<span><a href="./index.php?page=employee&id=' + 
+              person.id + '">Ред</a></span> , <span onclick="deleteEmployee(' + person.id + ')">удал</span>' +
+            '</td></tr>'
+          );
+        });
+      } else {
+        $('.div_employees').append('<div> Список пуст </div>');
+      }
+     
+      if (data.pages) {
+        for (var i = 1; i <= data.pages; i++) {
+          $('#numberPages tr').append('<td>' + i + '</td>');
+        };
+      }
 
       $('.foto img').hover(function(event){
         $('#foto_big_size').append('<img src="' + $(this).attr('src') + '" alt="фото">');
@@ -98,3 +105,5 @@ $('#birth').datepicker({
     dayNamesMin: ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"],
     firstDay: 1
   });
+
+  requestEmployees(dataForm());

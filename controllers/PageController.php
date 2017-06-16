@@ -25,7 +25,7 @@
     }
 
     public function action_deleteEmployee() {
-      M_Employees::deleteEmployee($_POST[id]);
+      M_Employees::deleteEmployee($_POST['id']);
     }
 
   }

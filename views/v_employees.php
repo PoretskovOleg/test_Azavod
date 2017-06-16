@@ -17,7 +17,7 @@
       <button type="button" id="btn_find" name="btn_find">Поиск</button>
     </form>
   </div>
-  <div>
+  <div class="div_employees">
     <table class="table_employees">
       <thead>
         <tr>
@@ -30,16 +30,6 @@
         </tr>
       </thead>
       <tbody id="employees">
-        <? foreach ($employees[employees] as $person) : ?>
-          <tr>
-            <td class="id"><?=$person[id]?></td>
-            <td class="foto"> <img src="<?=$person[foto]?>" alt="фото"> </td>
-            <td class="name"><?=$person[name]?></td>
-            <td class="age"><?=$person[age]?> лет </td>
-            <td class="sex <?=($person[sex] == 'муж') ? 'man' : 'woman' ?>"><?=$person[sex]?></td>
-            <td class="action"><span><a href="./index.php?page=employee&id=<?=$person[id]?>">Ред</a></span> , <span onclick = "deleteEmployee(<?=$person[id]?>)">удал</span></td>
-          </tr>
-        <? endforeach; ?>
       </tbody>
     </table>
   </div>
@@ -48,9 +38,6 @@
     <p>Страницы</p>
     <table id="numberPages">
       <tr>
-        <? for ($i=0; $i < $employees[pages]; $i++) : ?> 
-          <td><?=$i+1?></td>
-       <? endfor; ?>
       </tr>
     </table>
   </div>
